@@ -1,0 +1,25 @@
+{
+  "name": "JL4282-homework04",
+  "version": "1.0.0",
+  "description": "Homework 4: Express - Static Files, Forms, Sessions",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nyu-csci-ua-0480-002-fall-2015/JL4282-homework04.git"
+  },
+  "author": "Jesse Lifshitz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nyu-csci-ua-0480-002-fall-2015/JL4282-homework04/issues"
+  },
+  "homepage": "https://github.com/nyu-csci-ua-0480-002-fall-2015/JL4282-homework04",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "express-handlebars": "^2.0.1",
+    "express-session": "^1.11.3"
+  }
+}
