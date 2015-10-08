@@ -12,7 +12,13 @@ var publicPath = path.resolve(__dirname, "public");
 app.use(express.static(publicPath));
 
 app.get('/', function(req, res) {
-
+  res.render('home');
+});
+app.get('/settings', function(req, res) {
+  res.render('settings');
+});
+app.get('/birds', function(req, res) {
+  res.render('birds');
 });
 
 app.listen(3000);
