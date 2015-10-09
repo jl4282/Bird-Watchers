@@ -15,6 +15,10 @@ body {
   margin-left: 100px;
   bottom: 0;
   position: absolute;
+}
+
+.home-link{
+  text-decoration: none;
   color: #fff;
 }
 
@@ -45,6 +49,7 @@ h3{
   margin-left: auto;
   margin-right: auto;
   max-width: 300px;
+  margin-bottom: 20px;
 }
 
 .btn{
@@ -60,6 +65,7 @@ h3{
 button {
   margin-top: 1.2em;
   font-size: 1em;
+  cursor: pointer;
 }
 
 .btn div, button{

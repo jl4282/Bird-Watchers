@@ -20,8 +20,8 @@ var birdsList = createBirdList();
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(function(req, res, next) {
-  console.log(req.method, req.path);
-  console.log('======\nreq.body: ', req.body);
+  console.log('======\n', req.method, req.path);
+  console.log('req.body: ', req.body);
   console.log('req.session.minVal: ', req.session.minVal);
   next();
 });
@@ -58,7 +58,7 @@ app.post('/birds', function(req, res) {
       found = true;
     }
   }
-  if (!found){
+  if (!found && req.body.bird.trim()){ //making sure not to add empty birds
     birdsList.push({'name':req.body.bird, 'count': 1});
   }
   res.redirect('/birds');
