@@ -32,7 +32,7 @@ h3{
   margin-top: 20px;
   /*border-radius: 10px;*/
   background-color: #F8F8FF;
-  width: 100%;
+  width: 75%;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
@@ -57,16 +57,34 @@ h3{
   text-decoration: none;
 }
 
-.btn div{
+button {
+  margin-top: 1.2em;
+  font-size: 1em;
+}
+
+.btn div, button{
+  border: 0;
   padding: 10px 10px;
   border-radius: 3px;
-  display: inline;
+  display: inline-flex;
   color: white;
   background: #009688;
 }
 
-.btn div:hover{
+.btn div:hover, button:hover{
   padding-top: -3px;
   box-shadow: 1px 1px 10px #888888;
 }
 
+.count {
+  color: #9575CD;
+}
+
+input {
+  padding: 8px 40px;
+  font: 1em 'Open Sans';
+}
+
+form {
+  margin-bottom: 30px;
+}
