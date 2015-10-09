@@ -22,6 +22,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(function(req, res, next) {
   console.log(req.method, req.path);
   console.log('======\nreq.body: ', req.body);
+  console.log('req.session.minVal: ', req.session.minVal);
   next();
 });
 
@@ -34,17 +35,17 @@ app.get('/', function(req, res) {
   res.render('home');
 });
 app.get('/settings', function(req, res) {
-  res.render('settings');
+  res.render('settings', {minVal: req.session.minVal});
 });
 app.get('/birds', function(req, res) {
-  res.render('birds', {birdsList: filterBirds(req.session.MinVal)});
+  res.render('birds', {birdsList: filterBirds(req.session.minVal)});
   function filterBirds(minVal){
-    if (minVal){
+    if (minVal){ //filter if there's a minVal
       return birdsList.filter(function(bird){
         return bird.count >= minVal;
       });
     }
-    else
+    else //otherwise return the normal list
       return birdsList;
   }
 });
@@ -60,6 +61,10 @@ app.post('/birds', function(req, res) {
   if (!found){
     birdsList.push({'name':req.body.bird, 'count': 1});
   }
+  res.redirect('/birds');
+});
+app.post('/settings', function(req, res){
+  req.session.minVal = req.body.minVal;
   res.redirect('/birds');
 });
 //throw 500!
