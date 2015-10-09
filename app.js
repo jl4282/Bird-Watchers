@@ -37,13 +37,22 @@ app.get('/settings', function(req, res) {
   res.render('settings');
 });
 app.get('/birds', function(req, res) {
-  res.render('birds', {birdsList: birdsList});
+  res.render('birds', {birdsList: filterBirds(req.session.MinVal)});
+  function filterBirds(minVal){
+    if (minVal){
+      return birdsList.filter(function(bird){
+        return bird.count >= minVal;
+      });
+    }
+    else
+      return birdsList;
+  }
 });
 app.post('/birds', function(req, res) {
   // check and add to bird
   var found = false;
   for (var i in birdsList){
-    if (req.body.bird === birdsList[i].name){
+    if (req.body.bird.toLowerCase() === birdsList[i].name.toLowerCase()){
       birdsList[i].count++;
       found = true;
     }
@@ -54,7 +63,7 @@ app.post('/birds', function(req, res) {
   res.redirect('/birds');
 });
 //throw 500!
-//404 page!
+
 app.use(function(req, res, next) {
   res.status(404).render('404');
 });
