@@ -67,7 +67,6 @@ app.post('/settings', function(req, res){
   req.session.minVal = req.body.minVal;
   res.redirect('/birds');
 });
-//throw 500!
 
 app.use(function(req, res, next) {
   res.status(404).render('404');
